@@ -1,14 +1,13 @@
-import { FeedbackFormData } from '@/app/types';
-import { FieldErrors, UseFormRegisterReturn } from 'react-hook-form';
+import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 type FormInputType = {
-  errors: FieldErrors<FeedbackFormData>;
+  error?: FieldError;
   type: string;
   register: UseFormRegisterReturn<string>;
   placeholder: string;
 };
 
-function FormInput({ errors, type, register, placeholder }: FormInputType) {
+function FormInput({ error, type, register, placeholder }: FormInputType) {
   return (
     <div className="mb-5 flex flex-col">
       {type === 'textarea' ? (
@@ -26,7 +25,7 @@ function FormInput({ errors, type, register, placeholder }: FormInputType) {
           placeholder={placeholder}
         />
       )}
-      {errors.name && <small className="mt-2 text-red-700">{errors.name.message}</small>}
+      {error && <small className="mt-2 text-red-700">{error.message}</small>}
     </div>
   );
 }
