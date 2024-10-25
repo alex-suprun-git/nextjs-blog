@@ -33,7 +33,7 @@ export default function CommentForm() {
           register={register('comment')}
           type={'textarea'}
           placeholder={'Add to the discussion'}
-          errors={errors}
+          error={errors.comment}
         />
         <button
           className="btn ml-auto bg-brand-pink text-stone-900 hover:bg-brand-light-pink"

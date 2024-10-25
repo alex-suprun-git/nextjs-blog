@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import FormInput from '.';
-import { FieldErrorsImpl } from 'react-hook-form';
-import { FeedbackFormData } from '@/app/types';
+import { FieldError } from 'react-hook-form';
 
 const mockRegister = {
   name: 'test',
@@ -10,13 +9,14 @@ const mockRegister = {
   ref: vi.fn(),
 };
 
-const mockErrors: FieldErrorsImpl<FeedbackFormData> = {
-  name: { type: 'required', message: 'Name is required' },
+const mockNameErrors: FieldError = {
+  type: 'required',
+  message: 'Name is required',
 };
 
 describe('FormInput Component', () => {
   test('renders input element correctly', () => {
-    render(<FormInput errors={{}} type="text" register={mockRegister} placeholder="Your Name" />);
+    render(<FormInput type="text" register={mockRegister} placeholder="Your Name" />);
 
     const inputElement = screen.getByPlaceholderText('Your Name');
     expect(inputElement).toBeInTheDocument();
@@ -24,9 +24,7 @@ describe('FormInput Component', () => {
   });
 
   test('renders textarea element correctly', () => {
-    render(
-      <FormInput errors={{}} type="textarea" register={mockRegister} placeholder="Your Feedback" />,
-    );
+    render(<FormInput type="textarea" register={mockRegister} placeholder="Your Feedback" />);
 
     const textareaElement = screen.getByPlaceholderText('Your Feedback');
     expect(textareaElement).toBeInTheDocument();
@@ -35,7 +33,12 @@ describe('FormInput Component', () => {
 
   test('displays error message when error is present', () => {
     render(
-      <FormInput errors={mockErrors} type="text" register={mockRegister} placeholder="Your Name" />,
+      <FormInput
+        error={mockNameErrors}
+        type="text"
+        register={mockRegister}
+        placeholder="Your Name"
+      />,
     );
 
     const errorMessage = screen.getByText('Name is required');
@@ -44,7 +47,7 @@ describe('FormInput Component', () => {
   });
 
   test('does not display error message when no error is present', () => {
-    render(<FormInput errors={{}} type="text" register={mockRegister} placeholder="Your Name" />);
+    render(<FormInput type="text" register={mockRegister} placeholder="Your Name" />);
 
     const errorMessage = screen.queryByText('Name is required');
     expect(errorMessage).not.toBeInTheDocument();
@@ -52,7 +55,7 @@ describe('FormInput Component', () => {
 
   test('matches snapshot', () => {
     const { asFragment } = render(
-      <FormInput errors={{}} type="text" register={mockRegister} placeholder="Your Name" />,
+      <FormInput type="text" register={mockRegister} placeholder="Your Name" />,
     );
 
     expect(asFragment()).toMatchSnapshot();

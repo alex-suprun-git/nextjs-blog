@@ -13,6 +13,17 @@ vi.mock('next/link', () => ({
   ),
 }));
 
+vi.mock('node-mailjet', () => ({
+  __esModule: true,
+  default: {
+    apiConnect: () => ({
+      post: () => ({
+        request: vi.fn().mockResolvedValue({ body: 'Mocked response' }),
+      }),
+    }),
+  },
+}));
+
 // Mock next/image
 vi.mock('next/image', () => ({
   __esModule: true,
