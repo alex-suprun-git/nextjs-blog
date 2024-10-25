@@ -4,7 +4,7 @@ This project is a dynamic blog page built with NextJS, TypeScript, TailwindCSS, 
 
 ## Project Description
 
-NextJS Simple Blog is designed to provide a seamless experience for users to check latest company's updates and for administrators to manage blog content using Sanity Headless CMS.
+NextJS Simple Blog is designed to provide a seamless experience for users to check the latest company updates, and for administrators to manage blog content using the Sanity Headless CMS.
 
 ### Features
 
@@ -30,6 +30,7 @@ NextJS Simple Blog is designed to provide a seamless experience for users to che
 - **React Syntax Highlighter**: Provides syntax highlighting for code blocks.
 - **React Icons**: A popular icon library for React projects.
 - **Speakingurl**: Library for generating URL-friendly slugs.
+- **Node Mailjet**: Library for handling email subscriptions.
 
 ## Table of Contents
 
@@ -94,6 +95,7 @@ NextJS Simple Blog is designed to provide a seamless experience for users to che
 ## Dependencies
 
 - `@hookform/resolvers`: ^3.9.0
+- `@next/third-parties`: 14.1.1
 - `@portabletext/react`: ^3.1.0
 - `@sanity/client`: ^6.21.3
 - `@sanity/code-input`: ^4.1.4
@@ -111,6 +113,7 @@ NextJS Simple Blog is designed to provide a seamless experience for users to che
 - `daisyui`: ^4.12.10
 - `next`: ^14.2.15
 - `next-sanity`: 9.5.0
+- `node-mailjet`: ^6.0.6
 - `react`: ^18.3.1
 - `react-dom`: ^18
 - `react-hook-form`: ^7.53.0
@@ -130,7 +133,6 @@ NextJS Simple Blog is designed to provide a seamless experience for users to che
 - `@types/react`: ^18
 - `@types/react-dom`: ^18
 - `@types/react-syntax-highlighter`: ^15.5.13
-- `@types/speakingurl`: ^13.0.6
 - `@types/testing-library__jest-dom`: ^6.0.0
 - `@vitejs/plugin-react`: ^4.3.2
 - `@vitest/coverage-v8`: ^2.1.1
