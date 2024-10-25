@@ -20,6 +20,8 @@ export default function FeedbackForm() {
     mode: 'onChange',
   });
 
+  console.log(errors);
+
   const onSubmit = (_data: FeedbackFormData) => {
     reset();
     setIsSubmitted(true);
@@ -36,19 +38,19 @@ export default function FeedbackForm() {
             register={register('name')}
             type={'text'}
             placeholder={'Your Name'}
-            errors={errors}
+            error={errors.name}
           />
           <FormInput
             register={register('email')}
             type={'email'}
             placeholder={'Your Email'}
-            errors={errors}
+            error={errors.email}
           />
           <FormInput
             register={register('message')}
             type={'textarea'}
             placeholder={'Your Feedback'}
-            errors={errors}
+            error={errors.message}
           />
           <button
             className="btn ml-auto mt-4 bg-brand-pink text-stone-900 hover:bg-brand-light-pink"
