@@ -1,8 +1,7 @@
-'use client';
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { sendFeedbackEmail } from '@/app/actions/sendFeedbackForm';
 import { FeedbackFormData } from '@/app/types';
 import { formSchema } from '@/app/formSchema';
 import { Form, FormInput } from '@/app/ui-lib';
@@ -20,9 +19,8 @@ export default function FeedbackForm() {
     mode: 'onChange',
   });
 
-  console.log(errors);
-
-  const onSubmit = (_data: FeedbackFormData) => {
+  const onSubmit = async (data: FeedbackFormData) => {
+    await sendFeedbackEmail(data);
     reset();
     setIsSubmitted(true);
   };
