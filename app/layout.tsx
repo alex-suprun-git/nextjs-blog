@@ -5,7 +5,7 @@ import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className="scroll-smooth" lang="en">
+    <html lang="en">
       <head>
         <Script
           id="Cookiebot"

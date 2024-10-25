@@ -24,10 +24,10 @@ function Post({ post }: { post: SanityPost }) {
         creationDate={creationDate}
         image={imageData}
       />
-      <div className="lg:hidden">
+      <div className="sticky top-0 z-10 lg:hidden">
         <TableOfContent data={post.headings} />
       </div>
-      <article className="bg-brand-dark-purple pt-12">
+      <article id="post-content" className="relative bg-brand-dark-purple pt-12">
         <div>
           <div className="container">
             <div className="flex flex-col justify-between pb-16 lg:flex-row lg:gap-5">
