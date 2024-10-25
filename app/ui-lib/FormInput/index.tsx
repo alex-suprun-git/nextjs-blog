@@ -20,7 +20,7 @@ function FormInput({ error, type, register, placeholder, className }: FormInputT
             className && className,
           )}
           placeholder={placeholder}
-          rows={5}
+          rows={4}
         ></textarea>
       ) : (
         <input

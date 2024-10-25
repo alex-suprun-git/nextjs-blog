@@ -40,11 +40,14 @@ export default function CommentForm() {
           <FormInput
             register={register('commentEmail')}
             type="email"
-            placeholder="Your E-Mail *"
+            placeholder="Your E-Mail  *"
             className="text-sm"
             error={errors.commentEmail}
           />
         </div>
+        <small className="mb-5 block">
+          <em>Your E-Mail won`t be published!</em>
+        </small>
         <FormInput
           register={register('commentText')}
           type={'textarea'}
