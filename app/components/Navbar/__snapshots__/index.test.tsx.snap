@@ -277,9 +277,9 @@ exports[`Navigation Component > should render correctly and match snapshot 1`] =
           class="mb-5 flex flex-col"
         >
           <input
-            class="input input-bordered bg-purple-950 placeholder:text-gray-400"
+            class="input input-bordered bg-purple-950 placeholder:text-gray-400 text-sm"
             name="name"
-            placeholder="Your Name"
+            placeholder="Your Name *"
             type="text"
           />
         </div>
@@ -287,9 +287,9 @@ exports[`Navigation Component > should render correctly and match snapshot 1`] =
           class="mb-5 flex flex-col"
         >
           <input
-            class="input input-bordered bg-purple-950 placeholder:text-gray-400"
+            class="input input-bordered bg-purple-950 placeholder:text-gray-400 text-sm"
             name="email"
-            placeholder="Your Email"
+            placeholder="Your Email *"
             type="email"
           />
         </div>
@@ -299,7 +299,7 @@ exports[`Navigation Component > should render correctly and match snapshot 1`] =
           <textarea
             class="textarea textarea-bordered resize-none bg-purple-950 p-4 placeholder:text-gray-400"
             name="message"
-            placeholder="Your Feedback"
+            placeholder="Your Feedback *"
             rows="5"
           />
         </div>
