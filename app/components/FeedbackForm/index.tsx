@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { sendFeedbackEmail } from '@/app/actions/sendFeedbackForm';
 import { FeedbackFormData } from '@/app/types';
-import { formSchema } from '@/app/formSchema';
 import { Form, FormInput } from '@/app/ui-lib';
+import { feedbackFormSchema } from '@/app/formSchemas';
 
 export default function FeedbackForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,7 +15,7 @@ export default function FeedbackForm() {
     reset,
     formState: { errors, isValid },
   } = useForm<FeedbackFormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(feedbackFormSchema),
     mode: 'onChange',
   });
 
@@ -35,19 +35,21 @@ export default function FeedbackForm() {
           <FormInput
             register={register('name')}
             type={'text'}
-            placeholder={'Your Name'}
+            placeholder={'Your Name *'}
             error={errors.name}
+            className="text-sm"
           />
           <FormInput
             register={register('email')}
             type={'email'}
-            placeholder={'Your Email'}
+            placeholder={'Your Email *'}
             error={errors.email}
+            className="text-sm"
           />
           <FormInput
             register={register('message')}
             type={'textarea'}
-            placeholder={'Your Feedback'}
+            placeholder={'Your Feedback *'}
             error={errors.message}
           />
           <button

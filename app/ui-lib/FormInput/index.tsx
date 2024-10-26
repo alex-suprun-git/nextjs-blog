@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 type FormInputType = {
@@ -5,23 +6,30 @@ type FormInputType = {
   type: string;
   register: UseFormRegisterReturn<string>;
   placeholder: string;
+  className?: string;
 };
 
-function FormInput({ error, type, register, placeholder }: FormInputType) {
+function FormInput({ error, type, register, placeholder, className }: FormInputType) {
   return (
     <div className="mb-5 flex flex-col">
       {type === 'textarea' ? (
         <textarea
           {...register}
-          className="textarea textarea-bordered resize-none bg-purple-950 p-4 placeholder:text-gray-400"
+          className={clsx(
+            'textarea textarea-bordered resize-none bg-purple-950 p-4 placeholder:text-gray-400',
+            className && className,
+          )}
           placeholder={placeholder}
-          rows={5}
+          rows={4}
         ></textarea>
       ) : (
         <input
           type={type}
           {...register}
-          className="input input-bordered bg-purple-950 placeholder:text-gray-400"
+          className={clsx(
+            'input input-bordered bg-purple-950 placeholder:text-gray-400',
+            className && className,
+          )}
           placeholder={placeholder}
         />
       )}

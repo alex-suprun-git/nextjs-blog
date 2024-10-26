@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CommentFormData } from '@/app/types';
-import { formSchema } from '@/app/formSchema';
 import { Form, FormInput } from '@/app/ui-lib';
+import { commentFormSchema } from '@/app/formSchemas';
 
 export default function CommentForm() {
   const [_isSubmitted, setIsSubmitted] = useState(false);
@@ -16,7 +16,7 @@ export default function CommentForm() {
     reset,
     formState: { errors, isValid },
   } = useForm<CommentFormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(commentFormSchema),
     mode: 'onChange',
   });
 
@@ -29,11 +29,30 @@ export default function CommentForm() {
     <>
       <h2 className="mb-6 text-2xl font-semibold">Share your thoughts</h2>
       <Form action={handleSubmit(onSubmit)}>
+        <div className="flex flex-wrap">
+          <FormInput
+            register={register('commentName')}
+            type="text"
+            placeholder="Your Name *"
+            className="mr-6 text-sm"
+            error={errors.commentName}
+          />
+          <FormInput
+            register={register('commentEmail')}
+            type="email"
+            placeholder="Your E-Mail  *"
+            className="text-sm"
+            error={errors.commentEmail}
+          />
+        </div>
+        <small className="mb-5 block">
+          <em>Your E-Mail won`t be published!</em>
+        </small>
         <FormInput
-          register={register('comment')}
+          register={register('commentText')}
           type={'textarea'}
-          placeholder={'Add to the discussion'}
-          error={errors.comment}
+          placeholder={'Add to the discussion *'}
+          error={errors.commentText}
         />
         <button
           className="btn ml-auto bg-brand-pink text-stone-900 hover:bg-brand-light-pink"
