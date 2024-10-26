@@ -3,7 +3,7 @@
 exports[`HomepageHero Component > should render correctly and match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="flex items-center justify-center px-10 pb-24 pt-24 text-stone-200"
+    class="flex h-svh items-center justify-center bg-base-100 px-10 pb-24 pt-24 text-stone-200"
   >
     <div
       class="mx-auto max-w-screen-md"

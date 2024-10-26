@@ -42,7 +42,9 @@ export type FeedbackFormData = {
 };
 
 export type CommentFormData = {
-  comment: string;
+  commentName: string;
+  commentEmail: string;
+  commentText: string;
 };
 
 export type SanityPage = {

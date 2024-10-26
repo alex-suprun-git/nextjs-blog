@@ -31,6 +31,7 @@ NextJS Simple Blog is designed to provide a seamless experience for users to che
 - **React Icons**: A popular icon library for React projects.
 - **Speakingurl**: Library for generating URL-friendly slugs.
 - **Node Mailjet**: Library for handling email subscriptions.
+- **React Testing Library Hooks**: Utility for testing custom React hooks.
 
 ## Table of Contents
 
@@ -124,6 +125,7 @@ NextJS Simple Blog is designed to provide a seamless experience for users to che
 - `styled-components`: ^6.1
 - `use-debounce`: ^10.0.3
 - `zod`: ^3.23.8
+- `@testing-library/react-hooks`: ^8.0.1
 
 ## Dev Dependencies
 

@@ -5,7 +5,10 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: {
+        DEFAULT: '2rem',
+        xs: '1rem',
+      },
     },
     screens: {
       xs: '320px',

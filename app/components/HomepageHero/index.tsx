@@ -4,7 +4,7 @@ function HomepageHero() {
   const href = '/publications';
 
   return (
-    <div className="flex items-center justify-center px-10 pb-24 pt-24 text-stone-200">
+    <div className="flex h-svh items-center justify-center bg-base-100 px-10 pb-24 pt-24 text-stone-200">
       <div className="mx-auto max-w-screen-md">
         <span className="mb-4 flex text-5xl font-bold text-gray-200">NextJS Blog ©</span>
         <h1 className="mb-6 break-normal text-4xl font-black leading-relaxed sm:text-6xl sm:leading-[1.25]">
