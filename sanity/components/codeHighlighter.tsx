@@ -5,7 +5,7 @@ const codeHighlighter = ({ value }: { value: { language?: string; code?: string 
   if (value?.language && value?.code) {
     return (
       <div className="my-10">
-        <SyntaxHighlighter language={value.language} style={highlightTheme}>
+        <SyntaxHighlighter showLineNumbers language={value.language} style={highlightTheme}>
           {value.code}
         </SyntaxHighlighter>
       </div>
