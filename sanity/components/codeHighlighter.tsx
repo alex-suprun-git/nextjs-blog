@@ -11,6 +11,7 @@ const codeHighlighter = ({ value }: { value: { language?: string; code?: string 
       </div>
     );
   }
+  return <></>;
 };
 
 export default codeHighlighter;
