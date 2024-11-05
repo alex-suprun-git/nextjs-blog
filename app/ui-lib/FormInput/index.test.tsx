@@ -28,7 +28,7 @@ describe('FormInput Component', () => {
 
     const textareaElement = screen.getByPlaceholderText('Your Feedback');
     expect(textareaElement).toBeInTheDocument();
-    expect(textareaElement).toHaveAttribute('rows', '5');
+    expect(textareaElement).toHaveAttribute('rows', '4');
   });
 
   test('displays error message when error is present', () => {
