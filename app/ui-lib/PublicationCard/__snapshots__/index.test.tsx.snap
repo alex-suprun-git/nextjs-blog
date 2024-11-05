@@ -6,7 +6,7 @@ exports[`PublicationCard Component > should render correctly and match snapshot 
     href="/publications/test-category/test-slug"
   >
     <div
-      class="card card-compact bg-base-100 shadow-xl"
+      class="card card-compact bg-slate-800 shadow-xl"
     >
       <figure
         class="lxs-sm:h-[200px] md:h-[250px]"

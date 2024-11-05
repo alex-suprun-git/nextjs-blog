@@ -17,7 +17,7 @@ function PublicationCard({
 
   return (
     <Link href={link}>
-      <div className="card card-compact bg-base-100 shadow-xl">
+      <div className="card card-compact bg-slate-800 shadow-xl">
         <figure className="lxs-sm:h-[200px] md:h-[250px]">
           <Image
             width={400}
