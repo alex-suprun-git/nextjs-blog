@@ -1,12 +1,13 @@
 'use client';
 
 import { useRef } from 'react';
+import clsx from 'clsx';
 import Link from 'next/link';
 import { FiMenu } from 'react-icons/fi';
 import Navigation from '../Navigation';
 import { Drawer, Modal } from '@/app/ui-lib';
+import ThemeSwitcher from '../ThemeSwitcher';
 import FeedbackForm from '../FeedbackForm';
-import clsx from 'clsx';
 
 const Navbar = ({ transparent }: { transparent?: boolean }) => {
   const feedbackModalFormRef = useRef<HTMLDialogElement>(null);
@@ -41,7 +42,7 @@ const Navbar = ({ transparent }: { transparent?: boolean }) => {
           <div className="navbar-center hidden lg:flex">
             <Navigation />
           </div>
-          <div className="navbar-end flex">
+          <div className="navbar-end flex items-center">
             <div className="lg:hidden">
               <Drawer toggleRef={drawerToggleRef} icon={<FiMenu size={38} />}>
                 <Navigation onClick={drawerToggleHandler} />
@@ -53,6 +54,7 @@ const Navbar = ({ transparent }: { transparent?: boolean }) => {
                 </a>
               </Drawer>
             </div>
+            <ThemeSwitcher />
             <a
               onClick={feedbackFormRefHandler}
               className="btn no-animation hidden border-0 bg-brand-pink text-stone-900 hover:bg-brand-light-pink lg:flex"
