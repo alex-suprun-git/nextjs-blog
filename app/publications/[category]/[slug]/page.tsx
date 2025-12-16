@@ -10,10 +10,11 @@ import { SITE_BRAND_TITLE_ENDING } from '@/app/constants';
 
 export const revalidate = 3600;
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const postMetadata = await sanityFetch<SanityPostMeta>({
     query: postQuery,
-    params,
+    params: resolvedParams,
   });
 
   return {
@@ -27,8 +28,9 @@ export async function generateStaticParams() {
   return posts;
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const post = await sanityFetch<SanityPost>({ query: postQuery, params });
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const post = await sanityFetch<SanityPost>({ query: postQuery, params: resolvedParams });
 
   if (!post) {
     return notFound();

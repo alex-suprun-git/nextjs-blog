@@ -12,10 +12,11 @@ import { SITE_BRAND_TITLE_ENDING } from '@/app/constants';
 
 export const revalidate = 3600;
 
-export async function generateMetadata({ params }: { params: { category: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const resolvedParams = await params;
   const categoryMetadata = await sanityFetch<SanityCategory>({
     query: categoryQuery,
-    params,
+    params: resolvedParams,
   });
 
   return {
@@ -28,21 +29,23 @@ export default async function Page({
   params,
   searchParams,
 }: {
-  params: { category: string };
-  searchParams: { page?: string };
+  params: Promise<{ category: string }>;
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const page = parseInt(searchParams.page || '1', 10);
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  const page = parseInt(resolvedSearchParams.page || '1', 10);
   const limit = 6;
   const start = (page - 1) * limit;
 
   const categoryMetadata = await sanityFetch<SanityCategory>({
     query: categoryQuery,
-    params,
+    params: resolvedParams,
   });
 
   const posts = await sanityFetch<SanityPostPreview[]>({
-    query: getCategoryPostsPaginatedQuery(params.category, start, limit),
-    params,
+    query: getCategoryPostsPaginatedQuery(resolvedParams.category, start, limit),
+    params: resolvedParams,
   });
 
   if (!posts?.length) {
@@ -70,7 +73,7 @@ export default async function Page({
                   currentPage={page}
                   totalPosts={categoryMetadata.totalPosts}
                   postsPerPage={limit}
-                  category={params.category}
+                  category={resolvedParams.category}
                 />
               )}
             </PublicationsSection>
